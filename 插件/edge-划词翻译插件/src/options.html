@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>划词翻译 · 设置</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar glass">
+        <h1>划词翻译 · 设置</h1>
+        <span class="grow"></span>
+        <label class="zoom-label" for="uiScale">界面缩放</label>
+        <select id="uiScale" class="zoom-select">
+          <option value="1">100%</option>
+          <option value="1.15">115%</option>
+          <option value="1.3">130%</option>
+          <option value="1.5">150%</option>
+        </select>
+        <button id="openWindow" class="btn">开翻译窗口</button>
+        <button id="openReader" class="btn">开 PDF 阅读器</button>
+      </header>
+
+      <section class="card glass">
+        <h2>语言</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="targetLang">翻译为</label>
+            <select id="targetLang"></select>
+          </div>
+          <div class="field">
+            <label for="sourceLang">原文语言</label>
+            <select id="sourceLang"></select>
+          </div>
+        </div>
+        <p class="tip">
+          「自动（中英互译）」：原文像中文就译成英文，否则译成简体中文 —— 中英来回翻不用手动切。
+          也可以直接指定任意目标语言。
+        </p>
+      </section>
+
+      <section class="card glass">
+        <h2>行为</h2>
+        <label class="chk"><input type="checkbox" id="autoOnDblclick" /> 双击选中后自动翻译</label>
+        <label class="chk"><input type="checkbox" id="autoOnSelect" /> 鼠标松开选中后自动翻译</label>
+        <label class="chk"><input type="checkbox" id="popupReadClipboard" /> 打开插件弹窗时自动读取剪贴板（Edge 内置 PDF 阅读器兜底）</label>
+      </section>
+
+      <section class="card glass">
+        <h2>翻译引擎（按顺序自动回退）</h2>
+        <div id="engineList"></div>
+        <p class="tip">
+          前面的引擎失败会自动尝试下一个。AI 接口支持多账号，可同时保留几家厂商，随时切换。
+        </p>
+      </section>
+
+      <section class="card glass">
+        <h2>使用说明</h2>
+        <ul class="tip">
+          <li>普通网页：双击选中单词/句子即出翻译；或选中后右键 →「翻译选中文本」；或按 <kbd>Alt+T</kbd>。</li>
+          <li>本地 PDF：点插件图标 →「＋PDF」，点中央大框或拖入 PDF，划词翻译同样可用（推荐做法）。</li>
+          <li>需要更大的输入区时，点插件图标 →「＋窗口」，可以同时开多个翻译窗口。</li>
+          <li>Edge 自带 PDF 阅读器是浏览器内置页面，任何插件都无法注入脚本，因此在那里只能：选中文本按 <kbd>Ctrl+C</kbd>，再点插件图标自动翻译。</li>
+        </ul>
+      </section>
+
+      <div class="actions glass">
+        <span class="hint">改完记得点保存</span>
+        <span class="grow"></span>
+        <span id="status"></span>
+        <button id="save" class="btn primary big">保存</button>
+      </div>
+    </div>
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

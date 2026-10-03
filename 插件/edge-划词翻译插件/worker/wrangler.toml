@@ -1,0 +1,19 @@
+name = "st-translate"
+main = "index.js"
+compatibility_date = "2026-09-24"
+
+# token 不要写在这里，用 secret：
+#   npx wrangler secret put TOKEN
+# 本地开发用 .dev.vars（不会被部署）：
+#   TOKEN=dev-token
+#   UPSTREAM_BASE=http://127.0.0.1:8099   # 可选：把上游指到本地 mock 做验证
+
+# Worker 靠 Workers AI 翻译（不再走 Google）。变量名必须是 AI。
+# 控制台创建的 Worker：Settings → Bindings → Add → Workers AI → 变量名填 AI
+[ai]
+binding = "AI"
+
+[vars]
+# 想换主模型就填这个，例如 "@cf/meta/llama-3.1-8b-instruct-fp8-fast"
+# 留空则用默认的 @cf/qwen/qwen3-30b-a3b-fp8
+# AI_MODEL = ""

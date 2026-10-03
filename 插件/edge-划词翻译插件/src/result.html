@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>划词翻译 · 结果</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body style="width: auto; max-width: 660px; margin: 24px auto">
+    <header class="glass">
+      <strong>划词翻译</strong>
+      <span class="grow"></span>
+      <button id="openReader" class="btn primary">打开 PDF 阅读器</button>
+    </header>
+    <div id="notice" class="out glass empty" style="display: none"></div>
+    <textarea id="input" class="glass" placeholder="粘贴要翻译的文本…"></textarea>
+    <div class="row">
+      <button id="translateBtn" class="btn primary">翻译</button>
+      <button id="pasteBtn" class="btn">从剪贴板读取</button>
+    </div>
+    <div id="out" class="out glass empty">结果会显示在这里</div>
+    <footer>
+      提示：Edge 内置的 PDF 阅读器不允许插件注入脚本，所以在那里请先选中文本按
+      <b>Ctrl+C</b>，再回到本页点「从剪贴板读取」。更好的做法是用「打开 PDF 阅读器」。
+    </footer>
+    <script src="result.js" type="module"></script>
+  </body>
+</html>

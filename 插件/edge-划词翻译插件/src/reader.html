@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>PDF 划词翻译阅读器</title>
+    <link rel="stylesheet" href="reader.css" />
+  </head>
+  <body>
+    <div id="toolbar">
+      <button id="pick" class="btn primary">打开本地 PDF</button>
+      <span class="sep"></span>
+      <button id="prev" class="btn">上一页</button>
+      <span id="pageLabel">— / —</span>
+      <button id="next" class="btn">下一页</button>
+      <span class="sep"></span>
+      <button id="zoomOut" class="btn">－</button>
+      <span id="zoomLabel">100%</span>
+      <button id="zoomIn" class="btn">＋</button>
+      <button id="fitWidth" class="btn">适应宽度</button>
+      <span class="grow"></span>
+      <span class="hint">选中文本后 <b>双击</b> 即翻译 · <b>Alt+T</b></span>
+    </div>
+
+    <div id="viewer">
+      <div id="empty" role="button" tabindex="0" title="点击选择本地 PDF">
+        <div class="icon">＋</div>
+        <div class="big">点击这里打开本地 PDF</div>
+        <div class="sub">或把文件拖进这个区域</div>
+        <div class="sub">打开后可直接划选、双击翻译</div>
+      </div>
+      <div id="pages"></div>
+    </div>
+
+    <input type="file" id="file" accept="application/pdf,.pdf" hidden />
+    <script type="module" src="reader.js"></script>
+  </body>
+</html>

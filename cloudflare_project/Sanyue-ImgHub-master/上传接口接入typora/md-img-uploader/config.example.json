@@ -1,0 +1,36 @@
+{
+  "_说明": "复制本文件为 config.json 再填。config.json 已被 .gitignore 排除，绝不要提交。",
+
+  "domain": "https://你的图床域名",
+  "_domain": "你自己部署的图床地址，只填域名不要带路径。注意：https://cfbed.sanyue.de 是项目官方文档站，不是图床实例，填它会404。",
+
+  "authCode": "",
+  "_authCode": "上传认证码，在图床后台「系统设置」里拿。填了它就不需要下面的 token。二选一即可。",
+
+  "token": "",
+  "_token": "API Token（需要 upload 权限）。不想用 authCode 就填这里，脚本会发 Authorization: Bearer <token>。",
+
+  "uploadChannel": "telegram",
+  "_uploadChannel": "存储渠道，按你后台实际配的填。可选：telegram / cfr2 / s3 / discord / huggingface / webdav。不确定就留 telegram（接口默认值）。",
+
+  "channelName": "",
+  "_channelName": "多渠道场景下指定具体渠道名，单渠道留空。可用渠道列表见 GET /api/channels。",
+
+  "uploadNameType": "default",
+  "_uploadNameType": "命名方式。default=前缀_原名 / index=仅前缀 / origin=仅原名 / short=短链接。",
+
+  "returnFormat": "full",
+  "_returnFormat": "保持 full，脚本会用它拿完整外链。",
+
+  "uploadFolder": "",
+  "_uploadFolder": "上传目录（相对路径）。支持日期占位符 {yyyy} {yy} {mm} {dd} {yyyymm}，例如 note/{yyyy}/{mm} 会传到 note/2026/10/。留空 = 全部放根目录。",
+
+  "serverCompress": true,
+  "_serverCompress": "仅 telegram 渠道生效：服务端压缩图片，省存储空间。",
+
+  "autoRetry": true,
+  "_autoRetry": "失败时自动切换其他渠道重试。",
+
+  "timeout": 90,
+  "_timeout": "单次上传超时秒数。大图或网络慢可调大。"
+}

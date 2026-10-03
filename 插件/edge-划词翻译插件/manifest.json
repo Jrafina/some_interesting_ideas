@@ -1,0 +1,82 @@
+{
+  "manifest_version": 3,
+  "name": "划词翻译 PDF 版",
+  "version": "1.0.0",
+  "description": "双击或右键划词即译；内置 PDF 阅读器，本地 PDF 也能划词翻译。",
+  "minimum_chrome_version": "110",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "scripting",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://translate.googleapis.com/",
+    "https://openapi.youdao.com/",
+    "https://dict.youdao.com/"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "划词翻译（Alt+T 翻译选中文本 · Alt+S 截屏翻译）",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_ui": {
+    "page": "src/options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "translate-selection": {
+      "suggested_key": { "default": "Alt+T" },
+      "description": "翻译当前选中的文本"
+    },
+    "open-reader": {
+      "suggested_key": { "default": "Alt+R" },
+      "description": "打开本地 PDF 划词翻译阅读器"
+    },
+    "snip-translate": {
+      "suggested_key": { "default": "Alt+S" },
+      "description": "截屏翻译（框选屏幕区域，OCR 后翻译）"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "file://*/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/ui/*",
+        "src/lib/*",
+        "src/reader.html",
+        "vendor/pdfjs/*",
+        "icons/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

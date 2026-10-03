@@ -1,0 +1,13 @@
+# 本地开发用的环境变量模板。
+# 用法：复制成 .dev.vars 再填自己的值（.dev.vars 已在 .gitignore 里，不会入库）。
+#   cp worker/.dev.vars.example worker/.dev.vars
+#   cd worker && npx wrangler dev
+
+# 调用 /translate、/ocr、/debug 时要带的 token。
+# 自己生成一串，例如：
+#   python -c "import secrets;print(secrets.token_urlsafe(24))"
+TOKEN=换成你自己的token
+
+# 可选：只在「本机自测 Worker 逻辑」时用，把上游指到一个本地假服务
+# （本机通常连不上 Google，所以需要假上游才能离线跑通）。
+# UPSTREAM_BASE=http://127.0.0.1:8799

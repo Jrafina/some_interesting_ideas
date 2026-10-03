@@ -1,0 +1,17 @@
+[Unit]
+Description=Google translate proxy for st-translate extension
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/gtranslate
+ExecStart=/usr/bin/python3 /opt/gtranslate/proxy.py
+Restart=always
+RestartSec=2
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=gtranslate
+
+[Install]
+WantedBy=multi-user.target

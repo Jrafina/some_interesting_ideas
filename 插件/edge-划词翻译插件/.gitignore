@@ -1,0 +1,27 @@
+# ============ 密钥 / 本地配置（绝不入库）============
+worker/.dev.vars
+.dev.vars
+*.token
+*.pem
+*.key
+
+# ============ 构建 / 缓存产物 ============
+node_modules/
+worker/.wrangler/
+.wrangler/
+*.log
+
+# ============ 助手工作区与记忆（私有：含本机路径、账号、域名等）============
+.workbuddy/
+
+# ============ 调试截图 ============
+# tests/shot.cjs 的产物，随时可重新生成；shot-dict.png 是 README 引用的示例图，要保留
+tests/shot-*.png
+!tests/shot-dict.png
+
+# ============ 系统 / 编辑器 ============
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~

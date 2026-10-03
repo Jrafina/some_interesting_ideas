@@ -1,0 +1,43 @@
+{
+  "name": "dsh-expense-recodes",
+  "version": "0.1.0",
+  "description": "DSH 会话费用统计插件：在界面右下角显示 300×160 悬浮小窗，实时展示当前工作区/会话的输入 tokens、输出 tokens、缓存命中率，并按自定义单价（元/百万 tokens）折算费用。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "expense",
+    "cost",
+    "tokens",
+    "缓存",
+    "费用"
+  ],
+  "license": "MIT"
+}

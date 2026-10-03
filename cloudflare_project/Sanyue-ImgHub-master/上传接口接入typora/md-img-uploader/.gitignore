@@ -1,0 +1,54 @@
+# ===== 凭据 / 本机配置（绝对不要提交）=====
+# config.json 里有图床域名和 API Token，必须本地保留、不进版本库。
+# 首次使用请复制 config.example.json 为 config.json 再填。
+config.json
+*.token
+*.secret
+.env
+.env.*
+*.dev.vars
+
+# 证书与私钥
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+
+# ===== Python 缓存 =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== 助手工作区（含私有记忆，绝不能提交）=====
+.workbuddy/
+
+# ===== 编辑器 / 系统 =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 调试产物 =====
+*.log
+*_debug.py
+*_probe.py
+_tmp_*
+test-*.png
+*-test.png
+# 注意：_mock_server.py 和 _test_*.py 是有意保留的工具/测试，不要忽略

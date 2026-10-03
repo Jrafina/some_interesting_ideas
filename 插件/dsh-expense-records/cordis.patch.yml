@@ -1,0 +1,8 @@
+# dsh bundle patch: inserts this plugin into a profile's layer stack.
+#
+# When installed through `dsh plugin --profile <name> add dsh-expense-recodes`,
+# the CLI reconciles `dsh.profile.bundles` against this declaration and appends
+# `dsh-expense-recodes` to the bundle stack automatically.
+- insert:
+    - id: expense-recodes
+      name: 'dsh-expense-recodes'

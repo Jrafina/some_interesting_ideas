@@ -1,0 +1,6 @@
+{
+  "name": "st-translate-extension",
+  "private": true,
+  "type": "module",
+  "description": "划词翻译浏览器插件（附测试脚本）"
+}

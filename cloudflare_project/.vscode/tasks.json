@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Dev Workflow",
+      "type": "shell",
+      "command": "git add . ; git commit -m 'dev update' ; git push",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Git Add Only",
+      "type": "shell",
+      "command": "git add ."
+    },
+    {
+      "label": "Git Commit",
+      "type": "shell",
+      "command": "git commit -m '${input:commitMessage}'"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "commitMessage",
+      "type": "promptString",
+      "description": "输入提交信息",
+      "default": "dev update"
+    }
+  ]
+}

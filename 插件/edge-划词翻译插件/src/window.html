@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>划词翻译 · 翻译窗口</title>
+    <link rel="stylesheet" href="window.css" />
+  </head>
+  <body>
+    <div class="pane glass">
+      <header>
+        <span class="brand">翻译窗口</span>
+        <span class="grow"></span>
+        <label class="mini" for="targetLang">译为</label>
+        <select id="targetLang"></select>
+        <button id="newWindow" class="btn" title="再开一个翻译窗口">＋新窗口</button>
+        <button id="openReader" class="btn" title="新开 PDF 阅读器">＋PDF</button>
+        <button id="openOptions" class="btn">设置</button>
+      </header>
+
+      <div class="main">
+        <section class="col">
+          <div class="colbar">
+            <span>原文</span>
+            <span class="grow"></span>
+            <button id="pasteBtn" class="btn mini-btn">粘贴</button>
+            <button id="clearBtn" class="btn mini-btn">清空</button>
+          </div>
+          <textarea id="input" placeholder="在这里输入或粘贴文本…（Ctrl+Enter 翻译）"></textarea>
+        </section>
+
+        <section class="col">
+          <div class="colbar">
+            <span>译文</span>
+            <span class="grow"></span>
+            <button id="copyBtn" class="btn mini-btn">复制</button>
+          </div>
+          <div id="out" class="out empty">译文会显示在这里</div>
+        </section>
+      </div>
+
+      <footer>
+        <button id="translateBtn" class="btn primary">翻译（Ctrl+Enter）</button>
+        <span id="meta" class="meta"></span>
+      </footer>
+    </div>
+    <script src="window.js" type="module"></script>
+  </body>
+</html>
