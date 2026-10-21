@@ -2327,7 +2327,7 @@ function htmlTemplate(adminPath, d1Enabled, bucketsJson, turnstileSiteKey) {
                 await new Promise((resolve, reject) => {
                   const xhr = new XMLHttpRequest();
                   xhr.open('POST', '/api/upload');
-                  xhr.setRequestHeader('X-Admin-Password', getSavedPassword());
+                  xhr.setRequestHeader('X-Admin-Token', getSavedPassword());
                   xhr.setRequestHeader('X-Target-Bucket', bucket);
                   xhr.setRequestHeader('X-Add-Timestamp', addTsHeader);
                   let lastTime = Date.now(), lastLoaded = 0;
@@ -2344,7 +2344,7 @@ function htmlTemplate(adminPath, d1Enabled, bucketsJson, turnstileSiteKey) {
                       uploadProgress.value = Math.round(totalProgress);
                     }
                   });
-                  xhr.onload = () => xhr.status === 200 ? resolve() : reject(new Error('上传失败'));
+                  xhr.onload = () => xhr.status === 200 ? resolve() : reject(new Error('HTTP ' + xhr.status));
                   xhr.onerror = () => reject(new Error('连接中断'));
                   const fd = new FormData();
                   fd.append('file', file);
@@ -2392,7 +2392,7 @@ function htmlTemplate(adminPath, d1Enabled, bucketsJson, turnstileSiteKey) {
               await new Promise((resolve, reject) => {
                 const xhr = new XMLHttpRequest();
                 xhr.open('PUT', \`/api/multipart/upload-part?key=\${encodeURIComponent(key)}\`);
-                xhr.setRequestHeader('X-Admin-Password', getSavedPassword());
+                xhr.setRequestHeader('X-Admin-Token', getSavedPassword());
                 xhr.setRequestHeader('X-Target-Bucket', bucket);
                 xhr.setRequestHeader('X-Upload-Id', uploadId);
                 xhr.setRequestHeader('X-Part-Number', partNum);
